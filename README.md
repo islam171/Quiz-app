@@ -1,4 +1,5 @@
 # QUIZ APP
+![Screen](assets/HomePage.png)
 
 ## About project
 Quiz app for testing with tests and meterials. Data is from local JS files. App has one HTML page. Routing reqlized with native js.
