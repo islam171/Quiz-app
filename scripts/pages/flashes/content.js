@@ -1,0 +1,17 @@
+export const content = `
+<section class="section">
+    <div class="card pad">
+      <div class="kicker">🃏 Флеш-карточки</div>
+      <h2 style="margin:10px 0 6px;">Выбери тему</h2>
+      <p style="margin:0;color:rgba(255,255,255,.72);">
+        Здесь список наборов. Открой тему — и уже на отдельной странице будет функционал карточек.
+      </p>
+
+      <div style="height:14px"></div>
+
+      <div class="topics-grid" id="topicsGrid">
+      
+</div>
+    </div>
+  </section>
+`;
