@@ -1,15 +1,15 @@
 import { tests } from '../../data/tests.js'
 import {linkToRunTest} from '../../router/links.js'
-import { content } from './content.js'
+import html from './index.html'
 
 export default class Test{
 
   constructor(){
-    this.html =content;
+    this.html = html;
   }
 
-  runTest = (value) => {
-    linkToRunTest(value)
+  runTest = (id) => {
+    linkToRunTest(id)
   }
 
   render(){
@@ -25,7 +25,7 @@ export default class Test{
                             <span class="badge">${item.questions.length} вопросов</span>
 <!--                            <span class="badge">~7 мин</span>-->
                         </div>
-                        <div class="btn primary" data-name="${item.name}">Начать</div>
+                        <div class="btn primary" data-id="${item.id}">Начать</div>
                     </div>
                 </div>
     `
@@ -34,7 +34,7 @@ export default class Test{
     let button = document.querySelectorAll('.btn')
     button.forEach(button => {
       button.addEventListener('click', (e) => {
-        this.runTest(e.target.dataset.name)
+        this.runTest(e.target.dataset.id)
       })
     })
 

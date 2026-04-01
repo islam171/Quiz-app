@@ -1,0 +1,86 @@
+.flash-wrap{
+  display:grid;
+  gap: 12px;
+}
+
+/* Flash card flip */
+.flash-card{
+  perspective: 1100px;
+}
+.flash-inner{
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  transition: transform .55s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.flash-card.flipped .flash-inner{
+  transform: rotateY(180deg);
+}
+
+.side{
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  padding: 18px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.side .label{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.side .label b{
+  font-size: 13px;
+  letter-spacing: -.1px;
+  color: var(--text);
+}
+
+.side .text{
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding: 10px 6px;
+  font-weight: 900;
+  letter-spacing: -.25px;
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1.25;
+}
+
+.hint{
+  color: var(--text);
+  font-size: 13px;
+  text-align:center;
+}
+
+.back{
+  transform: rotateY(180deg);
+  background: rgba(109,94,252,.12);
+  border-color: rgba(109,94,252,.22);
+
+}
+
+.controls{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mini{
+  width: 100%;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items:center;
+}

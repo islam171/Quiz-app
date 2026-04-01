@@ -5,7 +5,7 @@ const main = document.querySelector('.main')
 
 const links = [
   {
-    name: 'main',
+    name: 'home',
     item: document.querySelector('.main-link'),
   },
   {
@@ -29,13 +29,20 @@ const links = [
 export const routing = () => {
   let location = localStorage.getItem('page')
 
+  let isOk = false
   routes.map(route => {
     if(location === route.path){
+      isOk = true
       let a = new route.component();
       main.innerHTML = a.html
       a.render()
     }
   })
+  if(!isOk){
+    let a = new routes[0].component();
+    main.innerHTML = a.html
+    a.render()
+  }
 
   const loginDiv = document.querySelector('.login-link')
   const logOutDiv = document.querySelector('.logout')

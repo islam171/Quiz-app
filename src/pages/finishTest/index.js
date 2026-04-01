@@ -1,9 +1,9 @@
-import { content } from './content.js'
 import { linkToRunTest, linkToTests } from '../../router/links.js'
+import html from './index.html'
 
 export default class FinishTestPage{
   constructor() {
-    this.html = content
+    this.html = html
   }
 
   render() {
@@ -20,7 +20,7 @@ export default class FinishTestPage{
     name.innerHTML = `${result?.name} • ${result?.level}`
 
     repeat.addEventListener('click', () => {
-      linkToRunTest(result.name)
+      linkToRunTest(result.id)
       this.clear();
     })
 

@@ -1,11 +1,13 @@
-import { content } from './content.js'
 import { linkToLogin, linkToMaterial, linkToTests } from '../../router/links.js'
 import { getLogged } from '../../state.js'
 import { tests } from '../../data/tests.js'
+import html from './index.html'
+
+import './styles.scss'
 
 export default class HomePage{
   constructor() {
-    this.html = content
+    this.html = html
   }
 
   render() {

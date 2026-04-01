@@ -1,10 +1,11 @@
-import { content } from './content.js'
 import { materials } from '../../data/materials.js'
 import { linkToMaterialSingle } from '../../router/links.js'
+import html from './index.html'
+import './style.scss'
 
 export default class MaterialPage{
   constructor() {
-    this.html = content
+    this.html = html
   }
 
   render() {
@@ -17,7 +18,7 @@ export default class MaterialPage{
                     <p>${material.desc}</p>
                     <div class="row">
 <!--                    <span class="small">Чтение: 6 мин</span>-->
-                        <div class="btn material-btn" data-id="${material.id}">Открыть</div>
+                        <div class="btn material-btn primary" data-id="${material.id}">Открыть</div>
                     </div>
                 </article>
       `

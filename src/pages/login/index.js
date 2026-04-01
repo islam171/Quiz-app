@@ -1,10 +1,10 @@
-import { content } from './content.js'
+import html from "./index.html";
 import { getPage } from '../../state.js'
 import { login } from '../../auth/auth.js'
 
 export default class LoginPage{
   constructor() {
-    this.html = content
+    this.html = html;
   }
 
   render() {

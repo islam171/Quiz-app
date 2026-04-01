@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<section class="section">
+    <div class="material-layout">
+
+        <!-- LEFT: video + article -->
+        <div class="card video-card">
+            <div class="video-wrap">
+                <!-- ВСТАВЬ СЮДА СВОЮ ССЫЛКУ НА ВИДЕО (YouTube embed) -->
+                <iframe
+                        src="https://www.youtube.com/embed/ZJToBXBNeU8?si=mzBe5IUk4wkBfyd9"
+                        title="Видео-урок"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-meta">
+                <!--          <div class="kicker">🎓 Материал • HTML</div>-->
+                <h1 class="material-single-title">Семантика HTML: основные теги и правила</h1>
+
+                <div class="reading">
+                    <span class="badge purple">Уровень: Easy</span>
+                    <span class="badge">Видео: ~15 мин</span>
+                    <span class="badge green">Конспект: 5–7 мин</span>
+                </div>
+
+                <div class="item content">
+                    <h3>Коротко о теме</h3>
+                    <p class="material-single-desc">
+                        Семантическая разметка помогает браузерам, поисковикам и скринридерам понять структуру страницы.
+                        Вместо бесконечных <b>&lt;div&gt;</b> ты используешь теги с смыслом: <b>&lt;header&gt;</b>, <b>&lt;main&gt;</b>,
+                        <b>&lt;section&gt;</b>, <b>&lt;article&gt;</b>, <b>&lt;footer&gt;</b>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: sidebar -->
+        <aside class="grid" style="gap:14px;">
+
+            <div class="card pad">
+                <h3 style="margin:0 0 10px;">Следующий шаг</h3>
+                <p style="margin:0 0 12px; color:rgba(255,255,255,.72); font-size:14px;">
+                    Готов? Пройди мини-тест и закрепи тему.
+                </p>
+                <a class="btn primary material-single-test">Перейти к тестам →</a>
+            </div>
+
+        </aside>
+
+    </div>
+</section>

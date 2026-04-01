@@ -1,0 +1,35 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "![Screen](assets/HomePage.png)",
+  "homepage": "https://github.com/islam171/Quiz-app#readme",
+  "bugs": {
+    "url": "https://github.com/islam171/Quiz-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/islam171/Quiz-app.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "babel-loader": "^10.1.1",,
+    "css-loader": "^7.1.4",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.6",
+    "sass": "^1.98.0",
+    "sass-loader": "^16.0.7",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.105.4",
+    "webpack-cli": "^7.0.0",
+    "webpack-dev-server": "^5.2.3"
+  }
+}

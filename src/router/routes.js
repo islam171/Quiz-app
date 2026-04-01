@@ -7,6 +7,7 @@ import LoginPage from '../pages/login/index.js'
 import MaterialSinglePage from '../pages/materialSingle/index.js'
 import FlashesPage from '../pages/flashes/index.js'
 import FlashesCardPage from '../pages/flashCard/index.js'
+import FinishFlashPage from '../pages/FinishFlash'
 
 export const routes = [
   {
@@ -14,7 +15,7 @@ export const routes = [
     component: Test,
   },
   {
-    path: 'main',
+    path: 'home',
     component: HomePage
   },
   {
@@ -40,5 +41,8 @@ export const routes = [
   },{
     path: 'flashCard',
     component: FlashesCardPage
+  },{
+    path: 'finishFlash',
+    component: FinishFlashPage
   },
 ]

@@ -1,77 +1,76 @@
-import { content } from './content.js'
 import Test from './Test.js'
+import html from './index.html'
+import './styles.scss'
+import { tests } from '../../data/tests'
 
 export default class TestRun {
 
   constructor () {
-    this.html = content
-    this.elements = []
+    this.html = html
+
   }
 
   render () {
+    this.els = {
+      title: document.getElementById("test__title"),
+      test__points: document.getElementById("test__points"),
+      test__number: document.getElementById("test__number"),
+      test__len: document.getElementById("test__len"),
+      test__done: document.getElementById("test__done"),
+      test__left: document.getElementById("test__left"),
+      question__title: document.getElementById("question__title"),
+      progress__fill: document.getElementById("test__progress__fill"),
+      progress__percentage: document.getElementById("progress__percentage"),
+      question__img: document.getElementById("question__img"),
+    }
     const test1 = new Test()
 
-
     document.getElementById('next').addEventListener('click', (e) => {
-      const choices = document.getElementsByName('q1');
-      let selectedValue;
+      const choices = document.getElementsByName('q1')
+      let selectedValue
 
       for (let i = 0; i < choices.length; i++) {
         if (choices[i].checked) {
-          selectedValue = choices[i].value;
+          selectedValue = choices[i].value
           test1.next(Number(selectedValue))
-          break; // Exit the loop once a selection is found
+          break // Exit the loop once a selection is found
         }
       }
-      if(!test1.isFinish){
+
+      if (!test1.isFinish) {
         this.runTestRender(test1.getStatus())
-
       }
-
-    })
-
-    document.getElementById('skip').addEventListener('click', (e) => {
-
-    })
-
-    document.getElementById('prev').addEventListener('click', (e) => {
-
     })
 
     document.getElementById('finish').addEventListener('click', (e) => {
-
+      test1.finish()
     })
 
-    if(!test1.isFinish) {
+
+    document.querySelector('.quit-test').addEventListener('click', (e) => {
+      test1.quit()
+    })
+
+    if (!test1.isFinish) {
       this.runTestRender(test1.getStatus())
     }
-
-
-    // console.log(selected)
   }
 
   runTestRender = (status) => {
-    const title = document.querySelector('.question-title')
-
-    title.innerHTML = status.question?.title
 
     const choices = document.querySelector('.choices')
     choices.innerHTML = ''
 
-    const test__top = document.querySelector('.test-top')
-    test__top.innerHTML = `
-                <div>
-                        <div class="kicker">🧠 Тест: ${status.title} • Уровень ${status.level}</div>
-                        <h2 style="margin:10px 0 0;">Прохождение теста</h2>
+    require.context('../../assets/tests', false, /\.(png|jpe?g|svg)$/)
 
-                        <div class="meta">
-                            <span class="pill">Вопрос: <b>${status.number}</b>/<b>10</b></span>
-                            <span class="pill">Баллы: <b>${status.points}</b></span>
-                        </div>
-                    </div>
 
-                    <div class="btn danger" >Выйти</div>
-  `
+    this.els.title.textContent = status.title
+    this.els.test__number.textContent = status.number
+    this.els.test__points.textContent = status.points
+    this.els.question__title.textContent = status.question?.title
+    this.els.test__done.innerHTML = ` ${ status.number - 1 }`
+    this.els.test__left.innerHTML = ` ${status.length - status.number + 1}`
+    this.els.question__img.src = "http://localhost:3000/" + status.question.img
 
     status.question.options.map((option, index) => {
       choices.innerHTML += `
@@ -84,12 +83,6 @@ export default class TestRun {
   `
     })
 
-    const badges = document.querySelector('.badges')
-    badges.innerHTML = `
-    <span class="badge green">Сохранено: ${status.number-1}</span>
-    <span class="badge">Осталось: ${status.length - status.number + 1}</span>
-  `
-
     const question__nav = document.querySelector('.question-nav')
     question__nav.innerHTML = ``
     for (let i = 1; i < status.number; i++) {
@@ -99,13 +92,8 @@ export default class TestRun {
       question__nav.innerHTML += `<a class="qbtn" href="#">${i}</a>`
     }
 
-    const progress = document.querySelector('.progress-bar')
-    const visualBar = progress.querySelector('.progress-fill'); // Assuming an inner div for visual width
-    const percentage = document.querySelector('.progress-percentage'); // Assuming an inner div for visual width
-    if(visualBar){
-      visualBar.style.width = `${(status.number-1) / status.length * 100}%`
-      percentage.innerHTML = (status.number-1) / status.length * 100;
-    }
+    this.els.progress__fill.style.width = `${( status.number - 1 ) / status.length * 100}%`
+    this.els.progress__percentage.textContent =`${( status.number - 1 ) / status.length * 100} %`
   }
 
 }

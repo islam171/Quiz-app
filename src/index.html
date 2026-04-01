@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>  <%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-$END$
+
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <a class="brand">
+                <div class="logo"></div>
+                <span>QuizHub</span>
+            </a>
+
+            <div class="menu">
+                <div class="link active main-link" >Главная</div>
+                <div class="link test-link" >Тесты</div>
+                <div class="link material-link">Материалы</div>
+                <div class="link flash-link" >Карточки</div>
+                <div class="link login-link" >Логин</div>
+                <div class="link logout">Выйти</div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <div class="main">
+
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="foot">
+            <div>© QuizHub • Материал</div>
+            <div>Сделано для учебного проекта</div>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
+

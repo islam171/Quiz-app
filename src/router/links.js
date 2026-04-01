@@ -13,7 +13,7 @@ export const linkToTests = () => {
 }
 
 export const linkToMain = () => {
-  localStorage.setItem('page', 'main')
+  localStorage.setItem('page', 'home')
   render()
 }
 
@@ -28,20 +28,26 @@ export const linkToLogin = () => {
   render()
 }
 
-export const linkToRunTest = (name) => {
+export const linkToRunTest = (id) => {
   if (!getLogged()) {
     linkToLogin()
     return;
   }
 
-  let test = tests.find(x => x.name === name)
+  let test = {
+    id: id,
+    current: 1,
+  }
   localStorage.setItem('test', JSON.stringify(test))
   localStorage.setItem('page', 'runTest')
   render()
 }
 
 export const linkToFinishedTest = () => {
-
+  if (!getLogged()) {
+    linkToLogin()
+    return;
+  }
   localStorage.setItem('page', 'finishedTest')
   render()
 }
@@ -57,7 +63,22 @@ export const linkToFlash = () => {
   render()
 }
 
+export const linkToFinishFlash = () => {
+  if (!getLogged()) {
+    linkToLogin()
+    return;
+  }
+  localStorage.setItem('page', 'finishFlash')
+  render()
+}
+
+
 export const linkToFlashCard = (id) => {
+  if (!getLogged()) {
+    linkToLogin()
+    return;
+  }
+
   localStorage.setItem('page', 'flashCard')
   localStorage.setItem('flash', JSON.stringify({ id }))
   render()

@@ -1,10 +1,11 @@
-import { content } from './content.js'
+import html from './index.html'
+import './style.scss'
 import { materials } from '../../data/materials.js'
 import { linkToTests } from '../../router/links.js'
 
 export default class MaterialSinglePage{
   constructor() {
-    this.html = content
+    this.html = html
   }
 
   render() {

@@ -1,12 +1,12 @@
-import { content } from './content.js'
 import { flashes } from '../../data/flashes.js'
 import { linkToFlashCard } from '../../router/links.js'
+import './style.scss'
+import html from './index.html'
 
 export default class FlashesPage {
 
   constructor () {
-    this.html = content
-    this.elements = []
+    this.html = html
   }
 
   render () {
@@ -41,7 +41,6 @@ export default class FlashesPage {
     const linkFlashCard = document.querySelectorAll('.flash-card')
 
     linkFlashCard.forEach(item => item.addEventListener('click', (e) => {
-      console.log('clicked')
       linkToFlashCard(e.target.dataset.id)
     }))
 

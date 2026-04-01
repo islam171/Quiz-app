@@ -1,4 +1,5 @@
-import { linkToFinishedTest } from '../../router/links.js'
+import { linkToFinishedTest, linkToTests } from '../../router/links.js'
+import { tests } from '../../data/tests'
 
 export default class Test{
   questions = [];
@@ -9,13 +10,17 @@ export default class Test{
   currentQuestion = 1
   isFinish = false;
   result = [];
+  id = 0;
 
   constructor() {
     let localTest = JSON.parse(localStorage.getItem('test'))
-    this.questions = localTest.questions;
-    this.name = localTest.name;
-    this.level = localTest.level;
-    this.question = localTest.questions[this.currentQuestion - 1];
+    let test = tests.find(item => item.id === Number(localTest.id))
+
+    this.id = test.id
+    this.questions = test.questions;
+    this.name = test.name;
+    this.level = test.level;
+    this.question = test.questions[this.currentQuestion - 1];
   }
 
   skip = () => {
@@ -42,29 +47,47 @@ export default class Test{
   }
 
   finish = () => {
+    this.isFinish = true;
     let data = {
       name: this.name,
       level: this.level,
       answers: this.result,
       point: this.point,
       length: this.questions.length,
+      id: this.id
     }
     localStorage.setItem('finished', JSON.stringify(data));
     linkToFinishedTest()
   }
 
+  quit = () => {
+    this.questions = [];
+    this.point =  0;
+    this.name = ''
+    this.level = ''
+    this.question = {}
+    this.currentQuestion = 1
+    this.isFinish = false;
+    this.result = [];
+    this.id = 0;
+    linkToTests()
+  }
+
   prev = () => {
-    console.log('prev')
+    if(this.currentQuestion > 0) {
+      this.question = this.questions[this.currentQuestion-1]
+      this.currentQuestion--;
+    }
   }
 
   getStatus = () => {
     return {
-      points: this.point,
-      number: this.currentQuestion,
-      question: this.question,
-      title: this.name,
-      level: this.level,
-      length: this.questions.length,
+      points: this.point || '',
+      number: this.currentQuestion || '',
+      question: this.question || '',
+      title: this.name || '',
+      level: this.level || '',
+      length: this.questions.length || 0,
     }
   }
 }
