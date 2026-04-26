@@ -1,18 +1,44 @@
 export const materials = [
   {
     id: 1,
-    name: "Дроби",
-    url: "https://www.youtube.com/embed/L4hooJivaUM?si=9wtM8oJbRBgOOgeU",
-    desc: "Дроби"
+    name: "Неравенства",
+    url: "https://www.youtube.com/embed/aDkXCMJhXss",
+    desc: "Видео-конспект про неравенства"
   },{
     id: 2,
-    name: "Проценты",
-    url: "https://www.youtube.com/embed/0PwovBNUdeE?si=_iSPGeWw9wllvS31",
-    desc: "Проценты"
+    name: "Производные",
+    url: "https://www.youtube.com/embed/ID",
+    desc: "Видео-конспект про производные"
   },{
     id: 3,
-    name: "Дроби с нуля - все виды дробей",
-    url: "https://www.youtube.com/embed/ZJToBXBNeU8?si=mzBe5IUk4wkBfyd9",
-    desc: "Дроби"
+    name: "Уравнения",
+    url: "https://www.youtube.com/embed/N4XULAOQ36g",
+    desc: "Видео-конспект про уравнения"
+  },{
+    id: 4,
+    name: "Системы уравнений",
+    url: "https://www.youtube.com/embed/PPs17eRF7CA",
+    desc: "Видео-конспект про системы уравнений"
   },
+  {
+    id: 5,
+    name: "Треугольники",
+    url: "https://www.youtube.com/embed/zeduOEre8Yk",
+    desc: "Видео-конспект про треугольники и их свойства"
+  },{
+    id: 6,
+    name: "Формулы приведения(тригонометрия)",
+    url: "https://www.youtube.com/embed/_DEZRuV1_bM",
+    desc: "Видео-конспект про тригонометрические формулы приведения"
+  },{
+    id: 7,
+    name: "Интегралы",
+    url: "https://www.youtube.com/embed/nI-mNRPWHxA",
+    desc: "Видео-конспект про интегралы"
+  },{
+    id: 8,
+    name: "Формулы сокращенного умножения",
+    url: "https://youtu.be/QQSexAV1Vqc?si=4ft92AISKg0OkFek",
+    desc: "Видео-конспект про формулы сокращенного умножения"
+  }
 ]

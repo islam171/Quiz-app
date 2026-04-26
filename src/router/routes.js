@@ -8,6 +8,7 @@ import MaterialSinglePage from '../pages/materialSingle/index.js'
 import FlashesPage from '../pages/flashes/index.js'
 import FlashesCardPage from '../pages/flashCard/index.js'
 import FinishFlashPage from '../pages/FinishFlash'
+import TestAnswer from '../pages/testAnswer'
 
 export const routes = [
   {
@@ -44,5 +45,8 @@ export const routes = [
   },{
     path: 'finishFlash',
     component: FinishFlashPage
+  },{
+    path: 'answerTest',
+    component: TestAnswer
   },
 ]

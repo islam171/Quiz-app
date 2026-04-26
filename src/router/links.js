@@ -83,3 +83,13 @@ export const linkToFlashCard = (id) => {
   localStorage.setItem('flash', JSON.stringify({ id }))
   render()
 }
+
+export const linkToTestAnswer = () => {
+  if (!getLogged()) {
+    linkToLogin()
+    return;
+  }
+
+  localStorage.setItem('page', 'answerTest')
+  render()
+}
